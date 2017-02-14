@@ -103,5 +103,5 @@ b=len(rdict)
 c=len(rdict[rdict.keys()[0]])
 print "majority of the time is spent building the dictionary, the big O	time complexity for searching through the dictionary is O(",b*c,")"
 
-print "since the storage of data is in name-value pairs, the big o space complexity is O(",a,"N), for", a,"Number of pairs"
+print "since the storage of data is in name-value pairs, the big o space complexity is O(",a*c,"), for", a,"Number of pairs"
 				
