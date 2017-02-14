@@ -97,4 +97,11 @@ for poss, count in hashdict.items():
 print "real	532m58.495s"
 print "user	527m2.972s"
 print "sys	5m52.312s"
+
+a=len(hashdict)
+b=len(rdict)
+ab=a*b
+print "majority of the time is spent building the dictionary, the big O	time complexity for searching through the dictionary is O(",ab,")"
+
+print "since the storage of data is in name-value pairs, the big o space complexity is O(",a,"N), for", a,"Number of pairs"
 				
