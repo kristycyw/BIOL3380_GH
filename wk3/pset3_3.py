@@ -94,4 +94,7 @@ for poss, count in hashdict.items():
 			listfindout.write("read name: %s, chromosome: %s, strand: %s, position: %s \n" %(rdnm,count[1],count[2],count[0]))
 #		listfindout.write("read name: %s, chromosome: %s, strand: %s, position: %s \n" %(rdnm,count[1],count[2],None))
 
+print "real	532m58.495s"
+print "user	527m2.972s"
+print "sys	5m52.312s"
 				
