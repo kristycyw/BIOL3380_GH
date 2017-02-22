@@ -2,8 +2,9 @@
 
 import os
 import string
+import numpy
 
-fasta_file=open('someword.fa',"r")
+fasta_file=open('my_test.fa',"r")
 output=open('fasta_temp.fasta',"w")
 
 temp=[]
@@ -41,31 +42,50 @@ os.remove("fasta_temp.fasta")
 #print fasta
 
 filenames=[]
-bwt=[]
+SALIST=[]
+bwtlist=[]
 for seqnm, seq in fasta.items():
 	filenames.append(seqnm)
 	#print filenames
-	temp=[]
-	temp2=[]
+	salist=[]
+	suffix=[]
 	for i in seq:
 		i=i+'$'
-		temp.append(i)
+		suffix.append(i)
 		stlen=len(i)
 		for a in range(0, len(i)-1):
-			newstr=i[stlen-1]+i[0:stlen-1]
+			newstr=i[1:]+i[0]
 			i=newstr
 			#print newstr
-			temp.append(i)
-	temp=sorted(temp, key=str.upper)
-	#print temp
-	for b in temp:
-		lenb=len(b)
-		temp2.append(b[lenb-1])
-	temp2=''.join(temp2)
-	#print temp2
-	bwt.append(temp2)
-#print bwt
-for bwt1, filenames1 in zip(bwt,filenames):
-	with open(filenames1, 'w') as output:
+			suffix.append(i)
+		sa = numpy.argsort(suffix)
+		#print suffix
+		#this is the order of the sort
+#position i in SA correpsonds to position in the BWT and SA[i] is the position of that element of the BWT in the original string
+		for a in sa:
+			salist.append(a)
+		SALIST.append(salist)
+#print SALIST 
+	#print salist
+	BWT=[]
+	for b in salist:
+		#print suffix[b][-1]
+		BWT.append(suffix[b][-1])
+	BWT = ''.join(BWT)
+	#print BWT
+	bwtlist.append(BWT)
+#print bwtlist
+for bwt1, filenames1 in zip(bwtlist,filenames):
+	with open(filenames1+'.txt', 'w') as output:
 		output.write(bwt1 + '\n')
-				
+
+for seqnm1, seq1 in fasta.items():
+	for c in seq1:
+		#for x in range(0, len(c), 10):
+			#print x, salist[x], BWT[x]
+		with open(seqnm1+'_SA.txt','w') as out_sa:
+			for x in range(0, len(c), 10):
+				out_sa.write("%s \t %i \t %i \n"%(BWT[x], x, salist[x]))
+
+
+#					out_c.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,SA.count('A'),SA.count('T'),SA.count('C'),SA.count('G')))			 
