@@ -86,6 +86,10 @@ for seqnm1, seq1 in fasta.items():
 		with open(seqnm1+'_SA.txt','w') as out_sa:
 			for x in range(0, len(c), 10):
 				out_sa.write("%s \t %i \t %i \n"%(BWT[x], x, salist[x]))
-
-
-#					out_c.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,SA.count('A'),SA.count('T'),SA.count('C'),SA.count('G')))			 
+		with open(seqnm1+'_c.txt','w') as out_c:
+			for x in range(0, len(c), 10):
+				out_c.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,BWT[x].count('A'),BWT[x].count('T'),BWT[x].count('C'),BWT[x].count('G')))
+		with open(seqnm1+'_occ.txt','w') as out_occ:
+			for x in range(0, len(c), 10):
+				out_occ.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,BWT[0:x].count('A'),BWT[0:x].count('T'),BWT[0:x].count('C'),BWT[0:x].count('G')))
+				
