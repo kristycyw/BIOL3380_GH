@@ -19,11 +19,11 @@ plt.clf()
 forrev=[]
 for read1 in bamfile.fetch():
 	forrev.append(read1.is_reverse)
-total=forrev.count(True)+forrev.count(False)
+total=len(forrev)
 false=float(forrev.count(False))/total
 true=float(forrev.count(True))/total
-print 'Proportion of reads are on the reverse strand (true) is' , true
-print 'Proportion of reads are on the forward strand (false) is' , false
+print 'Proportion of reads are on the reverse strand (True) is' , true
+print 'Proportion of reads are on the forward strand (False) is' , false
 
 
 

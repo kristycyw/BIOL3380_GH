@@ -4,7 +4,7 @@ import os
 import string
 import numpy
 
-fasta_file=open('tester.fa',"r")
+fasta_file=open('my_test.fa',"r")
 output=open('fasta_temp.fasta',"w")
 
 temp=[]
@@ -81,14 +81,15 @@ for bwt1, filenames1 in zip(bwtlist,filenames):
 
 for seqnm1, seq1 in fasta.items():
 	for c in seq1:
-		#for x in range(0, len(c), 100):
+		#for x in range(0, len(c), 10):
 			#print x, salist[x], BWT[x]
 		with open(seqnm1+'_SA.txt','w') as out_sa:
-			for x in range(0, len(c), 100):
+			for x in range(0, len(c), 10):
 				out_sa.write("%s \t %i \t %i \n"%(BWT[x], x, salist[x]))
 		with open(seqnm1+'_c.txt','w') as out_c:
-			for x in range(0, len(c), 100):
+			for x in range(0, len(c), 10):
 				out_c.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,BWT[x].count('A'),BWT[x].count('T'),BWT[x].count('C'),BWT[x].count('G')))
 		with open(seqnm1+'_occ.txt','w') as out_occ:
-			for x in range(0, len(c), 100):
-				out_occ.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,BWT[0:x].count('A'),BWT[0:x].count('T'),BWT[0:x].count('C'),BWT[0:x].count('G')))	
+			for x in range(0, len(c), 10):
+				out_occ.write("%i \t A:%i \t T:%i \t C:%i \t G:%i \n"%(x,BWT[0:x].count('A'),BWT[0:x].count('T'),BWT[0:x].count('C'),BWT[0:x].count('G')))
+				
