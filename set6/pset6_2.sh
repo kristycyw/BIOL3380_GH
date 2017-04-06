@@ -17,5 +17,5 @@ samtools view -bS s_cerevisiae.sam > s_cerevisiae.bam
 
 samtools sort s_cerevisiae.bam -o s_cerevisiae.sorted.bam
 
-samtools index s_cerevisiae.sorted
+samtools index s_cerevisiae.sorted.bam
 

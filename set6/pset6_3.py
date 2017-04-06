@@ -29,6 +29,6 @@ for x in range(len(Ci)):
         FPKM=(float(Ci[x])/(Li[x]*M))*10**9
         FPKM_list.append(FPKM)
 for y in range(len(FPKM_list)):
-	out_FPKM.write("%s\t%i\n" % (names[y],FPKM_list[y]))
+	out_FPKM.write("%s\t%f\n" % (names[y][0],FPKM_list[y]))
 
 		
