@@ -1,0 +1,9 @@
+{
+	"n_targets": 6713,
+	"n_bootstraps": 0,
+	"n_processed": 1467569,
+	"kallisto_version": "0.43.1",
+	"index_version": 10,
+	"start_time": "Thu Apr 20 16:09:55 2017",
+	"call": "./kallisto quant -i s_cerevisiae.idx -o WT_2 --single -l 180 -s 20 ERR458878.fastq.gz"
+}
