@@ -4,6 +4,6 @@
 	"n_processed": 12123234,
 	"kallisto_version": "0.43.1",
 	"index_version": 10,
-	"start_time": "Thu Apr 27 16:20:54 2017",
+	"start_time": "Thu Apr 27 17:08:03 2017",
 	"call": "./kallisto quant -i s_paradoxus.idx -o Spar_ribo_seq1 --single -l 180 -s 20 Spar_ribo_seq_1.fastq.gz"
 }
