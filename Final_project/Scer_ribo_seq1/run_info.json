@@ -1,0 +1,9 @@
+{
+	"n_targets": 5474,
+	"n_bootstraps": 0,
+	"n_processed": 11560408,
+	"kallisto_version": "0.43.1",
+	"index_version": 10,
+	"start_time": "Thu Apr 27 16:16:37 2017",
+	"call": "./kallisto quant -i s_cerevisiae.idx -o Scer_ribo_seq1 --single -l 180 -s 20 Scer_ribo_seq_1.fastq.gz"
+}

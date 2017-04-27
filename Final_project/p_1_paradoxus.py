@@ -58,5 +58,5 @@ for line in bedfile:
 		gene_nm=line[4]
 	else:
 		gene_nm=line[4][:stop]
-	gene=genome[line[0]][int(line[2]):int(line[3])+1]
+	gene=genome[line[0]][int(line[2]):(int(line[3])+1)]
 	out_genelist.write(">%s\n%s\n"%(gene_nm,gene))
