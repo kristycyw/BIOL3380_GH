@@ -39,11 +39,11 @@ plotMA(res)
 plotDispEsts(dds)
 
 pval=res$pvalue
-sumpval=sum(pval<0.05, na.rm=TRUE)
+sumpval=sum(pval<0.1, na.rm=TRUE)
 sumpval
-#2509
+#2884
 
 padj=res$padj
-sumpadj=sum(padj<0.05, na.rm=TRUE)
+sumpadj=sum(padj<0.1, na.rm=TRUE)
 sumpadj
-#2135
+#2469
