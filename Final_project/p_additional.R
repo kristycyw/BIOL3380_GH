@@ -5,6 +5,7 @@ TE=read.table("/home/kristy/Desktop/BIOL3380/Project/translational_efficiency_al
 
 plot(mRNA_abund[,2],TE[,2],main="Logfoldchange in MRNA abundance against logfoldchange in translational efficiency", xlab="log2foldchange in mRNA abundance",ylab="log2foldchange in Translational Efficiency")
 #plot(TE[,2], mRNA_abund[,2],main="Logfoldchange in MRNA abundance against logfoldchange in translational efficiency", xlab="log2foldchange in TE",ylab="log2foldchange in mRNA")
+abline(lm(mRNA_abund[,2]~TE[,2]))
 
 combined_all=as.data.table(merge(mRNA_abund,TE,by="V1"))
 combined_all
