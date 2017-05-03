@@ -14,6 +14,7 @@ rownames(coldata)=names(files)
 coldata
 
 dds= DESeqDataSetFromTximport(txdat, colData= coldata, design= ~ assay + condition + assay:condition)
+dds$assay = relevel(dds$assay, ref="RNA")
 dds= DESeq(dds, test="LRT", reduced= ~ assay + condition)
 
 res = results(dds)
