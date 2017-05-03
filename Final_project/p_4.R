@@ -1,5 +1,6 @@
 library(tximport)
 library(DESeq2)
+library(data.table)
 
 files=c("/home/kristy/Desktop/BIOL3380/Project/Scer_ribo_seq1/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Scer_ribo_seq2/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Spar_ribo_seq1/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Spar_ribo_seq2/abundance.tsv")
 names(files)=c("Scer_ribo1","Scer_ribo2","Spar_ribo1","Spar_ribo2")
@@ -46,3 +47,7 @@ padj=res$padj
 sumpadj=sum(padj<0.1, na.rm=TRUE)
 sumpadj
 #563
+
+res_dt = as.data.table(as.data.frame(res), keep.rownames="id")
+res_print=res_dt[padj<.1,.(id,log2FoldChange)]
+write.table(res_print, file="/home/kristy/Desktop/BIOL3380/Project/ribosomal_occupancy_sig.txt", col.name=FALSE, row.name=FALSE)

@@ -1,5 +1,6 @@
 library(tximport)
 library(DESeq2)
+library(data.table)
 
 files=c("/home/kristy/Desktop/BIOL3380/Project/Scer_RNA_seq1/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Scer_RNA_seq2/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Spar_RNA_seq1/abundance.tsv","/home/kristy/Desktop/BIOL3380/Project/Spar_RNA_seq2/abundance.tsv")
 names(files)=c("Scer_RNA1","Scer_RNA2","Spar_RNA1","Spar_RNA2")
@@ -47,3 +48,9 @@ padj=res$padj
 sumpadj=sum(padj<0.1, na.rm=TRUE)
 sumpadj
 #2469
+
+res_dt = as.data.table(as.data.frame(res), keep.rownames="id")
+res_raw_print=res_dt[,.(id,log2FoldChange)]
+write.table(res_raw_print, file = "/home/kristy/Desktop/BIOL3380/Project/mRNA_abundance_all.txt", col.name=FALSE, row.name=FALSE)
+res_print=res_dt[padj<.1,.(id,log2FoldChange)]
+write.table(res_print, file="/home/kristy/Desktop/BIOL3380/Project/mRNA_abundance_sig.txt", col.name=FALSE, row.name=FALSE)
