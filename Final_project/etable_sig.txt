@@ -1,3 +1,3 @@
 "" "TE_increase" "TE_decrease"
-"mRNA_abundance_increase" "169" "15"
-"mRNA_abundance_decrease" "27" "47"
+"mRNA_abundance_increase" "15" "169"
+"mRNA_abundance_decrease" "47" "27"
